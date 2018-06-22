@@ -43,16 +43,29 @@ $("<div>")
 
 // First, target the button and add an event listener to it. The callback function should create a card with an h4 element for the person's name and two paragraph elements for the person's position and company.
 // How would we do this with vanilla js?
+let $newCard
 $("#create-card").click(() => {
-  const $newCard = $("<div>").addClass("card");
+  $newCard = $("<div>").addClass("card");
   $("<h4>").addClass("name").attr("id", "name-heading").appendTo($newCard);
+  $("<p>").addClass("name").attr("id", "position").appendTo($newCard);
+  $("<p>").addClass("name").attr("id", "company").appendTo($newCard);
   $newCard.appendTo($("#card-container"))
 })
 
 // Next, target the inputs and add event listeners so that when the inputs change, the text on the card changes
 $("#name-input").keydown(() => {
-  const textValue = $("#name-input").val()
-  $("#name-heading").text(textValue);
+  const nameValue = $("#name-input").val()
+  $("#name-heading").text(nameValue);
+})
+
+$("#position-input").keydown(() =>{
+  const positionValue = $("#position-input").val()
+  $("#position").text(positionValue);
+})
+
+$("#company-input").keydown(() => {
+  const companyValue = $("#company-input").val()
+  $("#company").text(companyValue);
 })
 
 // What if we wanted to put an event listener on something that we added dynamically with javascript?
@@ -60,16 +73,19 @@ $("body").on("click", "#name-heading", ()=> {
   console.log('does it work??')
 })
 
+$("#delete-card").click(() => {
+  $newCard.remove()
+})
 
 
 
-// YOUR CHALLENGE 
+// YOUR CHALLENGE
 
 // In the event listener for creating a new card, add empty paragraph elements for position and company under the name h4
 
 // Add event listeners to the last two inputs. When you enter text in the inputs, the text in the card should change.
 
-// Add an event listener to the remove card button. When the button is clicked, the entire card should disappear. Experiment with the .hide() and .remove() methods. What's the difference between them? 
+// Add an event listener to the remove card button. When the button is clicked, the entire card should disappear. Experiment with the .hide() and .remove() methods. What's the difference between them?
 
 
 
